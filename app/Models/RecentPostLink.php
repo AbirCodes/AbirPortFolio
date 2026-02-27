@@ -14,6 +14,7 @@ class RecentPostLink extends Model
     protected $fillable = [
         'title',
         'url',
+        'image_path',
         'sort_order',
     ];
 }

@@ -8,7 +8,7 @@
     <div class="body">
         @foreach ($blogPosts as $post)
             <div class="item">
-                <form method="POST" action="{{ route('admin.content.blog-posts.update', $post) }}">
+                <form method="POST" action="{{ route('admin.content.blog-posts.update', $post) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="grid">
@@ -19,6 +19,8 @@
                         <div>
                             <label>Image Path (public path)</label>
                             <input type="text" name="image_path" value="{{ $post->image_path }}">
+                            <label>Upload Image</label>
+                            <input type="file" name="image_upload" accept="image/*">
                         </div>
                     </div>
 
@@ -72,7 +74,7 @@
 
         <div class="item">
             <h3>Add New</h3>
-            <form method="POST" action="{{ route('admin.content.blog-posts.store') }}">
+            <form method="POST" action="{{ route('admin.content.blog-posts.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="grid">
                     <div>
@@ -82,6 +84,8 @@
                     <div>
                         <label>Image Path</label>
                         <input type="text" name="image_path" value="assets/images/sample_images/blog_post1.jpg">
+                        <label>Upload Image</label>
+                        <input type="file" name="image_upload" accept="image/*">
                     </div>
                 </div>
                 <label>Excerpt</label>

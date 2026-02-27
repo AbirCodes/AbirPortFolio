@@ -8,7 +8,7 @@
     <div class="body">
         @foreach ($breakingNews as $news)
             <div class="item">
-                <form method="POST" action="{{ route('admin.content.breaking-news.update', $news) }}">
+                <form method="POST" action="{{ route('admin.content.breaking-news.update', $news) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="grid">
@@ -25,6 +25,16 @@
                     <input type="text" name="title" value="{{ $news->title }}">
                     <label>URL</label>
                     <input type="text" name="url" value="{{ $news->url }}">
+                    <div class="grid">
+                        <div>
+                            <label>Image Path (public path)</label>
+                            <input type="text" name="image_path" value="{{ $news->image_path }}">
+                        </div>
+                        <div>
+                            <label>Upload Image</label>
+                            <input type="file" name="image_upload" accept="image/*">
+                        </div>
+                    </div>
                     <div class="row-actions">
                         <button class="btn btn-primary" type="submit">Update</button>
                 </form>
@@ -39,7 +49,7 @@
 
         <div class="item">
             <h3>Add New</h3>
-            <form method="POST" action="{{ route('admin.content.breaking-news.store') }}">
+            <form method="POST" action="{{ route('admin.content.breaking-news.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="grid">
                     <div>
@@ -55,6 +65,16 @@
                 <input type="text" name="title">
                 <label>URL</label>
                 <input type="text" name="url" value="#">
+                <div class="grid">
+                    <div>
+                        <label>Image Path (public path)</label>
+                        <input type="text" name="image_path">
+                    </div>
+                    <div>
+                        <label>Upload Image</label>
+                        <input type="file" name="image_upload" accept="image/*">
+                    </div>
+                </div>
                 <button class="btn btn-primary" type="submit">Add Breaking News</button>
             </form>
         </div>

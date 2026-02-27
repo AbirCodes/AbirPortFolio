@@ -6,7 +6,7 @@
 <div class="card">
     <h2>Homepage Settings</h2>
     <div class="body">
-        <form method="POST" action="{{ route('admin.content.settings.update') }}">
+        <form method="POST" action="{{ route('admin.content.settings.update') }}" enctype="multipart/form-data">
             @csrf
             <div class="grid">
                 <div>
@@ -16,6 +16,8 @@
                 <div>
                     <label>Portfolio Image Path (public path)</label>
                     <input type="text" name="portfolio_image" value="{{ old('portfolio_image', $settings->portfolio_image) }}">
+                    <label>Upload Portfolio Image</label>
+                    <input type="file" name="portfolio_image_upload" accept="image/*">
                 </div>
             </div>
 
@@ -30,6 +32,8 @@
                 <div>
                     <label>Sidebar Image Path (public path)</label>
                     <input type="text" name="sidebar_image" value="{{ old('sidebar_image', $settings->sidebar_image) }}">
+                    <label>Upload Sidebar Image</label>
+                    <input type="file" name="sidebar_image_upload" accept="image/*">
                 </div>
             </div>
 

@@ -66,8 +66,11 @@ jobs:
       - name: Run migrations (mysql)
         run: php artisan migrate --force
 
-      - name: Run tests
-        run: php artisan test
+      - name: Run unit tests
+        run: php artisan test --testsuite=Unit
+
+      - name: Run feature tests
+        run: php artisan test --testsuite=Feature
 
       - name: Install Node dependencies
         run: |

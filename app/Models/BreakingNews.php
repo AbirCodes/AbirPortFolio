@@ -15,6 +15,7 @@ class BreakingNews extends Model
         'news_date',
         'title',
         'url',
+        'image_path',
         'sort_order',
     ];
 }

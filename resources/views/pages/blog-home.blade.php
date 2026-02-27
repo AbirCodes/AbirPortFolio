@@ -111,7 +111,7 @@
         </div>
 
         <div class="four column">
-            <aside>
+            {{-- <aside>
                 <div class="note-folded grey text-center">
                     <div class="widget-author">
                         <img src="{{ asset($settings->sidebar_image ?: 'assets/images/sample_images/team7.jpg') }}" alt="" />
@@ -120,7 +120,7 @@
                     <hr/>
                     <p>{{ $settings->profile_bio }}</p>
                 </div>
-            </aside>
+            </aside> --}}
 
             <aside>
                 <div id="weather"></div>

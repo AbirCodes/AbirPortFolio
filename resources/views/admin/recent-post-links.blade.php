@@ -8,7 +8,7 @@
     <div class="body">
         @foreach ($recentPostLinks as $link)
             <div class="item">
-                <form method="POST" action="{{ route('admin.content.recent-post-links.update', $link) }}">
+                <form method="POST" action="{{ route('admin.content.recent-post-links.update', $link) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="grid">
@@ -19,6 +19,16 @@
                         <div>
                             <label>URL</label>
                             <input type="text" name="url" value="{{ $link->url }}">
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div>
+                            <label>Image Path (public path)</label>
+                            <input type="text" name="image_path" value="{{ $link->image_path }}">
+                        </div>
+                        <div>
+                            <label>Upload Image</label>
+                            <input type="file" name="image_upload" accept="image/*">
                         </div>
                     </div>
                     <label>Sort Order</label>
@@ -37,7 +47,7 @@
 
         <div class="item">
             <h3>Add New</h3>
-            <form method="POST" action="{{ route('admin.content.recent-post-links.store') }}">
+            <form method="POST" action="{{ route('admin.content.recent-post-links.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="grid">
                     <div>
@@ -47,6 +57,16 @@
                     <div>
                         <label>URL</label>
                         <input type="text" name="url" value="#">
+                    </div>
+                </div>
+                <div class="grid">
+                    <div>
+                        <label>Image Path (public path)</label>
+                        <input type="text" name="image_path">
+                    </div>
+                    <div>
+                        <label>Upload Image</label>
+                        <input type="file" name="image_upload" accept="image/*">
                     </div>
                 </div>
                 <label>Sort Order</label>
