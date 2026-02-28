@@ -11,6 +11,7 @@
 
 - GitHub Actions workflow: `.github/workflows/ci-cd.yml`
 - Setup guide: `docs/ci-cd.md`
+- CD secret required for deploy: `DEPLOY_HOOK_URL`
 
 ## About Laravel
 

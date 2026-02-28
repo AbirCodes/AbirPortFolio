@@ -12,31 +12,21 @@ This project includes a workflow file at `.github/workflows/ci-cd.yml`.
   - Builds frontend assets (`npm run build`)
 
 - **CD (on push to `main`)**
-  - Runs only if deploy secrets are configured
-  - Connects to your server via SSH
-  - Pulls latest code
-  - Installs dependencies
-  - Runs migrations
-  - Caches Laravel config/routes/views
-  - Builds frontend assets (if Node exists on server)
+  - Runs only if `DEPLOY_HOOK_URL` is configured
+  - Calls your hosting provider deploy hook (Render/Railway/Koyeb style)
+  - Lets the hosting platform pull/build/deploy from GitHub
 
 ## Required GitHub Secrets
 
-Add these in your GitHub repository settings:
+Add this in your GitHub repository settings:
 
-- `DEPLOY_HOST` (example: `203.0.113.10`)
-- `DEPLOY_USER` (example: `ubuntu`)
-- `DEPLOY_SSH_KEY` (private SSH key for deploy user)
-- `DEPLOY_PORT` (optional, defaults to `22`)
-- `DEPLOY_PATH` (absolute server path of project, example: `/var/www/blog`)
+- `DEPLOY_HOOK_URL` (deploy webhook URL from your hosting provider)
 
-## Server prerequisites
+## Hosting prerequisites
 
-- PHP 8.1+ and Composer
-- Your app code already present at `DEPLOY_PATH` and connected to your git remote
-- Database configured in server `.env`
-- Write permissions for storage/cache directories
-- (Optional) Node/npm if you want asset build on server
+- Your app is connected to this GitHub repository on the hosting provider
+- Build/start commands and environment variables are set on the hosting provider
+- Database credentials are configured in provider environment variables
 
 ## CI database details
 
@@ -52,4 +42,4 @@ Add these in your GitHub repository settings:
 ## Notes
 
 - If deploy secrets are missing, CI still runs and CD is skipped.
-- You can customize the deploy script in `.github/workflows/ci-cd.yml` for your hosting stack.
+- You can point `DEPLOY_HOOK_URL` to any provider that supports deploy webhooks.
