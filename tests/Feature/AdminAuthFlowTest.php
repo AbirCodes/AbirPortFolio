@@ -16,11 +16,11 @@ class AdminAuthFlowTest extends TestCase
     public function test_admin_login_with_valid_credentials_redirects_to_dashboard(): void
     {
         $response = $this->post(route('admin.login.submit'), [
-            'username' => (string) env('ADMIN_USERNAME', 'admin'),
-            'password' => (string) env('ADMIN_PASSWORD', 'admin12345'),
+            'username' => (string) config('admin.username', 'admin'),
+            'password' => (string) config('admin.password', 'admin123'),
         ]);
 
-        $response->assertRedirect(route('admin.content.index'));
-        $response->assertSessionHas('admin_authenticated', true);
+        $response->assertRedirect(route('admin.dashboard'));
+        $response->assertSessionHas('is_admin_authenticated', true);
     }
 }

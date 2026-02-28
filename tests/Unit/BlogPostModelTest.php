@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Models\BlogPost;
-use App\Models\BreakingNews;
 use PHPUnit\Framework\TestCase;
 
 class BlogPostModelTest extends TestCase
@@ -14,21 +13,19 @@ class BlogPostModelTest extends TestCase
 
         $this->assertSame([
             'title',
+            'slug',
             'excerpt',
+            'content',
             'image_path',
-            'author',
             'published_at',
-            'tags',
-            'comments_label',
-            'button_text',
-            'sort_order',
+            'is_published',
         ], $model->getFillable());
     }
 
-    public function test_breaking_news_uses_custom_table_name(): void
+    public function test_blog_post_uses_expected_table_name(): void
     {
-        $model = new BreakingNews();
+        $model = new BlogPost();
 
-        $this->assertSame('breaking_news', $model->getTable());
+        $this->assertSame('blog_posts', $model->getTable());
     }
 }
