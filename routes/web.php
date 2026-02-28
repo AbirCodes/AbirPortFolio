@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\AdminContentController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/services', [HomeController::class, 'services'])->name('services');
+Route::get('/works', [HomeController::class, 'works'])->name('works');
+Route::view('/work-single', 'pages.work-single')->name('work-single');
+Route::get('/works/{work}', [HomeController::class, 'workSingle'])->name('works.show');
+Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::view('/blog-single', 'pages.blog-single')->name('blog-single');
+Route::get('/blog/{blogPost:slug}', [HomeController::class, 'blogSingle'])->name('blog.show');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::prefix('admin')->group(function (): void {
     Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('admin.login');
@@ -24,30 +33,20 @@ Route::prefix('admin')->group(function (): void {
 
     Route::middleware('admin.auth')->group(function (): void {
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+        Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
-        Route::get('/', [AdminContentController::class, 'index'])->name('admin.content.index');
-        Route::get('/settings', [AdminContentController::class, 'settingsPage'])->name('admin.content.settings.page');
-        Route::get('/portfolio-items', [AdminContentController::class, 'portfolioPage'])->name('admin.content.portfolio-items.page');
-        Route::get('/breaking-news', [AdminContentController::class, 'breakingNewsPage'])->name('admin.content.breaking-news.page');
-        Route::get('/blog-posts', [AdminContentController::class, 'blogPostsPage'])->name('admin.content.blog-posts.page');
-        Route::get('/recent-post-links', [AdminContentController::class, 'recentLinksPage'])->name('admin.content.recent-post-links.page');
+        Route::post('/settings', [AdminDashboardController::class, 'updateSettings'])->name('admin.settings.update');
 
-        Route::post('/settings', [AdminContentController::class, 'updateSettings'])->name('admin.content.settings.update');
+        Route::post('/services', [AdminDashboardController::class, 'storeService'])->name('admin.services.store');
+        Route::put('/services/{service}', [AdminDashboardController::class, 'updateService'])->name('admin.services.update');
+        Route::delete('/services/{service}', [AdminDashboardController::class, 'deleteService'])->name('admin.services.delete');
 
-        Route::post('/portfolio-items', [AdminContentController::class, 'storePortfolioItem'])->name('admin.content.portfolio-items.store');
-        Route::put('/portfolio-items/{portfolioItem}', [AdminContentController::class, 'updatePortfolioItem'])->name('admin.content.portfolio-items.update');
-        Route::delete('/portfolio-items/{portfolioItem}', [AdminContentController::class, 'deletePortfolioItem'])->name('admin.content.portfolio-items.delete');
+        Route::post('/works', [AdminDashboardController::class, 'storeWork'])->name('admin.works.store');
+        Route::put('/works/{work}', [AdminDashboardController::class, 'updateWork'])->name('admin.works.update');
+        Route::delete('/works/{work}', [AdminDashboardController::class, 'deleteWork'])->name('admin.works.delete');
 
-        Route::post('/breaking-news', [AdminContentController::class, 'storeBreakingNews'])->name('admin.content.breaking-news.store');
-        Route::put('/breaking-news/{breakingNews}', [AdminContentController::class, 'updateBreakingNews'])->name('admin.content.breaking-news.update');
-        Route::delete('/breaking-news/{breakingNews}', [AdminContentController::class, 'deleteBreakingNews'])->name('admin.content.breaking-news.delete');
-
-        Route::post('/blog-posts', [AdminContentController::class, 'storeBlogPost'])->name('admin.content.blog-posts.store');
-        Route::put('/blog-posts/{blogPost}', [AdminContentController::class, 'updateBlogPost'])->name('admin.content.blog-posts.update');
-        Route::delete('/blog-posts/{blogPost}', [AdminContentController::class, 'deleteBlogPost'])->name('admin.content.blog-posts.delete');
-
-        Route::post('/recent-post-links', [AdminContentController::class, 'storeRecentPostLink'])->name('admin.content.recent-post-links.store');
-        Route::put('/recent-post-links/{recentPostLink}', [AdminContentController::class, 'updateRecentPostLink'])->name('admin.content.recent-post-links.update');
-        Route::delete('/recent-post-links/{recentPostLink}', [AdminContentController::class, 'deleteRecentPostLink'])->name('admin.content.recent-post-links.delete');
+        Route::post('/posts', [AdminDashboardController::class, 'storePost'])->name('admin.posts.store');
+        Route::put('/posts/{post}', [AdminDashboardController::class, 'updatePost'])->name('admin.posts.update');
+        Route::delete('/posts/{post}', [AdminDashboardController::class, 'deletePost'])->name('admin.posts.delete');
     });
 });

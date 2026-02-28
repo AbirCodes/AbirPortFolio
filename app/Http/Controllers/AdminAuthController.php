@@ -2,18 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
 
 class AdminAuthController extends Controller
 {
-    public function showLogin(Request $request): View|RedirectResponse
+    public function showLogin(): View
     {
-        if ($request->session()->get('admin_authenticated', false)) {
-            return redirect()->route('admin.content.index');
-        }
-
         return view('admin.login');
     }
 
@@ -24,27 +21,26 @@ class AdminAuthController extends Controller
             'password' => ['required', 'string'],
         ]);
 
-        $expectedUsername = (string) env('ADMIN_USERNAME', 'admin');
-        $expectedPassword = (string) env('ADMIN_PASSWORD', 'admin12345');
+        $configuredUsername = (string) config('admin.username');
+        $configuredPassword = (string) config('admin.password');
 
-        if (
-            hash_equals($expectedUsername, $credentials['username'])
-            && hash_equals($expectedPassword, $credentials['password'])
-        ) {
-            $request->session()->regenerate();
-            $request->session()->put('admin_authenticated', true);
+        $passwordIsValid = str_starts_with($configuredPassword, '$2y$')
+            ? Hash::check($credentials['password'], $configuredPassword)
+            : hash_equals($configuredPassword, $credentials['password']);
 
-            return redirect()->route('admin.content.index');
+        if ($credentials['username'] !== $configuredUsername || ! $passwordIsValid) {
+            return back()->withErrors(['username' => 'Invalid admin credentials.'])->withInput();
         }
 
-        return back()
-            ->withErrors(['login' => 'Invalid admin credentials.'])
-            ->withInput($request->only('username'));
+        $request->session()->regenerate();
+        $request->session()->put('is_admin_authenticated', true);
+
+        return redirect()->route('admin.dashboard');
     }
 
     public function logout(Request $request): RedirectResponse
     {
-        $request->session()->forget('admin_authenticated');
+        $request->session()->forget('is_admin_authenticated');
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

@@ -11,13 +11,21 @@ class BlogPost extends Model
 
     protected $fillable = [
         'title',
+        'slug',
         'excerpt',
+        'content',
         'image_path',
-        'author',
         'published_at',
-        'tags',
-        'comments_label',
-        'button_text',
-        'sort_order',
+        'is_published',
     ];
+
+    protected $casts = [
+        'is_published' => 'boolean',
+        'published_at' => 'datetime',
+    ];
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 }
