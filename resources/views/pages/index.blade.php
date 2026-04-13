@@ -4,7 +4,7 @@
 
 <!-- Mirrored from www.madebydesignesia.com/themes/nathan/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 09:48:56 GMT -->
 <head>
-    <title>{{ $settings->brand_name ?? 'Nathan' }} — Personal Portfolio Website</title>
+    <title>{{ $settings->brand_name ?? 'Md. Abir Hossain' }} — Portfolio</title>
     <link rel="icon" href="{{ asset('assets/images/icon.webp') }}" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" >
@@ -45,11 +45,11 @@
                     <div class="d-menu-1 wow" data-wow-delay=".3s">
                         <ul>
                             <li class="active"><a href="{{ url('/' ) }}">Home</a></li>
-                            <li><a href="{{ url('/about') }}">About Me</a></li>
-                            <li><a href="{{ url('/services') }}">What I Do</a></li>
-                            <li><a href="{{ url('/works') }}">Works</a></li>
-                            <li><a href="{{ url('/blog') }}">Blog</a></li>
-                            <li><a href="{{ url('/contact') }}">Hire Me</a></li>
+                            <li><a href="{{ url('/about') }}">About</a></li>
+                            <li><a href="{{ url('/services') }}">Services</a></li>
+                            <li><a href="{{ url('/works') }}">Projects</a></li>
+                            <li><a href="{{ url('/blog') }}">Articles</a></li>
+                            <li><a href="{{ url('/contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -71,12 +71,12 @@
 
                             <div class="spacer-10"></div>
 
-                            <a class="w-150px btn-line wow fadeIn" data-wow-delay=".6s" href="{{ url('/about') }}">About Me</a>
+                            <a class="w-150px btn-line wow fadeIn" data-wow-delay=".6s" href="{{ url('/about') }}">Read Profile</a>
 
                         </div>
 
                         <div class="col-lg-6">
-                            <img src="{{ $settings->home_hero_image_path ? asset('storage/'.$settings->home_hero_image_path) : asset('assets/images/misc/1.webp') }}" class="w-100 wow fadeInUp" data-wow-delay=".6s" alt="">
+                            <img src="{{ asset('assets/images/background/profile.png') }}" class="w-100 wow fadeInUp" data-wow-delay=".6s" alt="Profile image">
                         </div>
                     </div>
 
@@ -150,8 +150,29 @@
                                         </div>
                                     </div>
                                 @empty
-                                    <div class="col-12">
-                                        <p>No services added yet.</p>
+                                    <div class="col-lg-6 col-sm-6 wow fadeInRight">
+                                        <div class="relative">
+                                            <h4>Laravel Full-Stack Development</h4>
+                                            <p>Secure, scalable web apps using Laravel, PHP, MySQL, Blade, and RESTful API design.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 wow fadeInRight">
+                                        <div class="relative">
+                                            <h4>Machine Learning Solutions</h4>
+                                            <p>Model training and evaluation pipelines using Scikit-learn, TensorFlow, PyTorch, and Streamlit.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 wow fadeInRight">
+                                        <div class="relative">
+                                            <h4>Data Analytics & Dashboards</h4>
+                                            <p>End-to-end analytics workflows with SQL, Python, Power BI, and Tableau for actionable insights.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 wow fadeInRight">
+                                        <div class="relative">
+                                            <h4>Open-Source Package Engineering</h4>
+                                            <p>Production-ready Laravel packages with tests, versioning, and clear developer integration paths.</p>
+                                        </div>
                                     </div>
                                 @endforelse
                             </div>
@@ -165,10 +186,10 @@
                 <div class="container">
                     <div class="row g-4 gx-5">
                         <div class="col-lg-2">
-                            <div class="subtitle ms-3 wow fadeInUp" data-wow-delay=".3s">Works</div>
+                            <div class="subtitle ms-3 wow fadeInUp" data-wow-delay=".3s">Featured Projects</div>
                         </div>
                         <div class="col-lg-10 wow fadeInUp" data-wow-delay=".4s">
-                             <h2>Explore the projects below to see how I bring ideas to life through thoughtful design and meticulous execution.</h2>
+                             <h2>Selected portfolio work across Laravel engineering, AI/ML research, and production-minded data systems.</h2>
                         </div>
                     </div>
 
@@ -192,7 +213,42 @@
                                                                 </div>
                                                         </div>
                                                 @empty
-                                                        <div class="col-12"><p>No work items added yet.</p></div>
+                                                    <div class="col-lg-4">
+                                                        <div class="hover relative overflow-hidden text-light">
+                                                            <div class="overflow-hidden d-block relative">
+                                                            <h2 class="fs-28 abs-centered z-index-1 hover-op-0">SmartVisual</h2>
+                                                            <img src="{{ asset('assets/images/works/1.webp') }}" class="img-fluid hover-scale-1-2" alt="">
+                                                            <div class="absolute bottom-0 w-100 p-4 d-flex text-white justify-content-between">
+                                                                <div class="d-tag-s2">LARAVEL PACKAGE</div>
+                                                                <div class="fw-bold">2026</div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="hover relative overflow-hidden text-light">
+                                                            <div class="overflow-hidden d-block relative">
+                                                            <h2 class="fs-28 abs-centered z-index-1 hover-op-0">YOLO Chess</h2>
+                                                            <img src="{{ asset('assets/images/works/2.webp') }}" class="img-fluid hover-scale-1-2" alt="">
+                                                            <div class="absolute bottom-0 w-100 p-4 d-flex text-white justify-content-between">
+                                                                <div class="d-tag-s2">COMPUTER VISION</div>
+                                                                <div class="fw-bold">2026</div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="hover relative overflow-hidden text-light">
+                                                            <div class="overflow-hidden d-block relative">
+                                                            <h2 class="fs-28 abs-centered z-index-1 hover-op-0">Query Watchdog</h2>
+                                                            <img src="{{ asset('assets/images/works/3.webp') }}" class="img-fluid hover-scale-1-2" alt="">
+                                                            <div class="absolute bottom-0 w-100 p-4 d-flex text-white justify-content-between">
+                                                                <div class="d-tag-s2">OBSERVABILITY</div>
+                                                                <div class="fw-bold">2026</div>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 @endforelse
                                         </div>
                 </div>
@@ -215,7 +271,7 @@
                 <div class="container">
                     <div class="row g-5">
                         <div class="col-lg-2">
-                            <div class="subtitle ms-3 wow fadeInUp" data-wow-delay=".3s">From the Blog</div>
+                            <div class="subtitle ms-3 wow fadeInUp" data-wow-delay=".3s">From the Notes</div>
                         </div>
                         <div class="col-lg-10 wow fadeInUp" data-wow-delay=".4s">
                             <div class="row g-4">
@@ -240,7 +296,44 @@
                                         </div>
                                     </div>
                                 @empty
-                                    <div class="col-12"><p>No blog posts published yet.</p></div>
+                                    <div class="col-lg-6">
+                                        <div class="relative">
+                                            <div class="row g-4 align-items-center">
+                                                <div class="col-sm-3">
+                                                    <div class="post-image">
+                                                        <img alt="" src="{{ asset('assets/images/blog/1.webp') }}" class="lazy">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-9">
+                                                    <div class="mb-2">
+                                                        <div class="d-inline fs-14 fw-bold me-3"><i class="icofont-tag text-white me-2"></i>Engineering</div>
+                                                        <div class="d-inline fs-14 fw-600"><i class="icofont-ui-calendar text-white me-2"></i>13 Apr 2026</div>
+                                                    </div>
+                                                    <h4>Building Laravel packages for real production diagnostics and monitoring.</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="relative">
+                                            <div class="row g-4 align-items-center">
+                                                <div class="col-sm-3">
+                                                    <div class="post-image">
+                                                        <img alt="" src="{{ asset('assets/images/blog/2.webp') }}" class="lazy">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-9">
+                                                    <div class="mb-2">
+                                                        <div class="d-inline fs-14 fw-bold me-3"><i class="icofont-tag text-white me-2"></i>ML</div>
+                                                        <div class="d-inline fs-14 fw-600"><i class="icofont-ui-calendar text-white me-2"></i>13 Apr 2026</div>
+                                                    </div>
+                                                    <h4>From NLP to object detection: designing reproducible ML pipelines.</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforelse
                             </div>
                         </div>
@@ -259,19 +352,19 @@
                         <div class="col-lg-6">
                             <div class="d-menu-1 wow" data-wow-delay=".3s">
                                 <ul>
-                                    <li><a href="#">Facebook</a></li>
-                                    <li><a href="#">Twitter</a></li>
-                                    <li><a href="#">Instagram</a></li>
+                                    <li><a href="https://github.com/Abir784" target="_blank" rel="noopener">GitHub</a></li>
+                                    <li><a href="https://linkedin.com/in/mdabirhossainabir" target="_blank" rel="noopener">LinkedIn</a></li>
+                                    <li><a href="mailto:abirhossainofficial784@gmail.com">Email</a></li>
                                 </ul>
 
-                                <p class="no-bottom">All Right Reserved<br>{{ $settings->brand_name ?? 'Nathan' }}</p>
+                                <p class="no-bottom">All Right Reserved<br>{{ $settings->brand_name ?? 'Md. Abir Hossain' }}</p>
 
                             </div>
                         </div>
 
                         <div class="col-lg-6 text-lg-end">
                             <a href="{{ url('/contact') }}">
-                                <h2 class="fs-84 fw-800 pe-3 shuffle wow fadeInLeft" data-wow-delay=".3s">Let's Talk</h2>
+                                <h2 class="fs-84 fw-800 pe-3 shuffle wow fadeInLeft" data-wow-delay=".3s">Let's Build</h2>
                             </a>
                         </div>
                     </div>

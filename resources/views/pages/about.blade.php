@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>{{ $settings->brand_name ?? 'Nathan' }} — Personal Portfolio Website</title>
+    <title>{{ $settings->brand_name ?? 'Md. Abir Hossain' }} - About</title>
     <link rel="icon" href="{{ asset('assets/images/icon.webp') }}" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" >
@@ -21,8 +21,52 @@
     @php($codingSkills = collect($settings->about_coding_skills ?? []))
     @php($experiences = collect($settings->about_experiences ?? []))
     @php($education = collect($settings->about_education ?? []))
-    @php($testimonials = collect($settings->about_testimonials ?? []))
     @php($counters = collect($settings->about_counters ?? []))
+
+    @if($aboutSkills->isEmpty())
+        @php($aboutSkills = collect([
+            ['title' => 'Laravel', 'image_path' => 'logo/figma.webp'],
+            ['title' => 'Python', 'image_path' => 'logo/photoshop.webp'],
+            ['title' => 'MySQL', 'image_path' => 'logo/sketch.webp'],
+            ['title' => 'Power BI', 'image_path' => 'logo/xd.webp'],
+        ]))
+    @endif
+
+    @if($codingSkills->isEmpty())
+        @php($codingSkills = collect([
+            ['name' => 'Laravel / PHP', 'level' => 92],
+            ['name' => 'Python ML Stack', 'level' => 88],
+            ['name' => 'MySQL / SQL', 'level' => 90],
+            ['name' => 'JavaScript', 'level' => 82],
+            ['name' => 'Data Visualization', 'level' => 84],
+            ['name' => 'REST API Design', 'level' => 86],
+        ]))
+    @endif
+
+    @if($experiences->isEmpty())
+        @php($experiences = collect([
+            ['period' => 'Jun 2025 - Jan 2026', 'title' => 'Student Tutor', 'organization' => 'BRAC University'],
+            ['period' => '2026 - Present', 'title' => 'Open-Source Laravel Author', 'organization' => 'Independent'],
+            ['period' => '2021 - Present', 'title' => 'Freelance Developer and Research Builder', 'organization' => 'Project-based'],
+        ]))
+    @endif
+
+    @if($education->isEmpty())
+        @php($education = collect([
+            ['year' => '2022 - 2026', 'title' => 'BSc in CSE (CGPA: 3.87/4.00)', 'organization' => 'BRAC University'],
+            ['year' => '2018 - 2020', 'title' => 'Higher Secondary Certificate (Science)', 'organization' => 'St. Gregory\'s High School and College'],
+            ['year' => '2021', 'title' => 'Web Development in Laravel (6-Month Training)', 'organization' => 'Creative IT Institute'],
+        ]))
+    @endif
+
+    @if($counters->isEmpty())
+        @php($counters = collect([
+            ['label' => 'Published Packages', 'value' => 2],
+            ['label' => 'Major Portfolio Projects', 'value' => 10],
+            ['label' => 'Students Mentored', 'value' => 20],
+            ['label' => 'CGPA x100', 'value' => 387],
+        ]))
+    @endif
 
     <div id="wrapper">
         <div class="float-text show-on-scroll">
@@ -36,15 +80,15 @@
 
             <section class="no-top">
                 <div class="text-fit-wrapper">
-                    <h1 class="text-fit wow">About Me</h1>
+                    <h1 class="text-fit wow">About</h1>
                     <div class="d-menu-1 wow" data-wow-delay=".3s">
                         <ul>
                             <li><a href="{{ url('/' ) }}">Home</a></li>
-                            <li class="active"><a href="{{ url('/about') }}">About Me</a></li>
-                            <li><a href="{{ url('/services') }}">What I Do</a></li>
-                            <li><a href="{{ url('/works') }}">Works</a></li>
-                            <li><a href="{{ url('/blog') }}">Blog</a></li>
-                            <li><a href="{{ url('/contact') }}">Hire Me</a></li>
+                            <li class="active"><a href="{{ url('/about') }}">About</a></li>
+                            <li><a href="{{ url('/services') }}">Services</a></li>
+                            <li><a href="{{ url('/works') }}">Projects</a></li>
+                            <li><a href="{{ url('/blog') }}">Articles</a></li>
+                            <li><a href="{{ url('/contact') }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -64,6 +108,39 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <p>{{ $settings->hero_subtitle }}</p>
+                                </div>
+                            </div>
+
+                            <div class="row g-4 mt-2 align-items-center wow fadeInUp" data-wow-delay=".52s">
+                                <div class="col-lg-5 col-md-6">
+                                    <img src="{{ asset('assets/images/background/profile.png') }}" class="img-fluid rounded-1" alt="Profile image">
+                                </div>
+                                <div class="col-lg-7 col-md-6">
+                                    <div class="p-4 border rounded-1 h-100">
+                                        <h5 class="mb-2">What I Build</h5>
+                                        <p class="mb-0">Laravel applications, ML pipelines, analytics dashboards, and open-source packages built to ship, scale, and stay maintainable.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row g-4 mt-2 wow fadeInUp" data-wow-delay=".55s">
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded-1 h-100">
+                                        <h5 class="mb-2">Primary Focus</h5>
+                                        <p class="mb-0">Laravel systems, applied ML pipelines, and data-driven product engineering.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded-1 h-100">
+                                        <h5 class="mb-2">Work Style</h5>
+                                        <p class="mb-0">Independent ownership with strong collaboration across product, research, and engineering teams.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 border rounded-1 h-100">
+                                        <h5 class="mb-2">Location</h5>
+                                        <p class="mb-0">Dhaka, Bangladesh. Open to remote and hybrid opportunities.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -174,24 +251,33 @@
             <section class="no-top">
                 <div class="container">
                     <div class="row g-4">
-                        <div class="col-lg-2"><div class="subtitle wow fadeInUp" data-wow-delay=".3s">What They Says</div></div>
+                        <div class="col-lg-2"><div class="subtitle wow fadeInUp" data-wow-delay=".3s">Strengths</div></div>
                         <div class="col-lg-10">
-                            <div class="owl-3-cols-dots owl-carousel owl-theme wow fadeInUp" data-wow-delay=".4s">
-                                @forelse($testimonials as $item)
-                                    <div class="item">
-                                        <div class="de_testi s2">
-                                            <blockquote>
-                                                <div class="de_testi_by">
-                                                    <img class="circle" alt="" src="{{ asset('assets/images/'.($item['image_path'] ?? 'testimonial/1.webp')) }}">
-                                                    <div>{{ $item['name'] ?? 'Client' }}<span>{{ $item['role'] ?? '' }}</span></div>
-                                                </div>
-                                                <p>"{{ $item['quote'] ?? '' }}"</p>
-                                            </blockquote>
-                                        </div>
+                            <div class="row g-4">
+                                <div class="col-md-6 wow fadeInRight" data-wow-delay=".35s">
+                                    <div class="p-3 border rounded-1 h-100">
+                                        <h5>Engineering Delivery</h5>
+                                        <p class="mb-0">Designing and shipping robust Laravel applications, packages, and backend workflows with production-quality structure.</p>
                                     </div>
-                                @empty
-                                    <div class="item"><p>No testimonials configured yet.</p></div>
-                                @endforelse
+                                </div>
+                                <div class="col-md-6 wow fadeInRight" data-wow-delay=".4s">
+                                    <div class="p-3 border rounded-1 h-100">
+                                        <h5>Applied AI and Analytics</h5>
+                                        <p class="mb-0">Building end-to-end ML and analytics pipelines from data preparation to evaluation, visualization, and decision-ready outputs.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 wow fadeInRight" data-wow-delay=".45s">
+                                    <div class="p-3 border rounded-1 h-100">
+                                        <h5>Problem Solving</h5>
+                                        <p class="mb-0">Strong algorithmic and systems thinking, shaped by mentoring students and solving practical software constraints.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 wow fadeInRight" data-wow-delay=".5s">
+                                    <div class="p-3 border rounded-1 h-100">
+                                        <h5>Communication</h5>
+                                        <p class="mb-0">Translating complex technical work into clear explanations for teammates, faculty, and non-technical stakeholders.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -214,6 +300,43 @@
                     </div>
                 </div>
             </section>
+
+            <section class="no-top">
+                <div class="container">
+                    <div class="row g-4">
+                        <div class="col-lg-2"><div class="subtitle wow fadeInUp" data-wow-delay=".3s">Languages</div></div>
+                        <div class="col-lg-10">
+                            <div class="row g-4">
+                                <div class="col-md-6 wow fadeInRight" data-wow-delay=".35s">
+                                    <div class="p-3 border rounded-1 h-100">
+                                        <h5>Bangla</h5>
+                                        <p class="mb-0">Native proficiency</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 wow fadeInRight" data-wow-delay=".4s">
+                                    <div class="p-3 border rounded-1 h-100">
+                                        <h5>English</h5>
+                                        <p class="mb-0">Intermediate professional communication</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="no-top">
+                <div class="container">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-2"><div class="subtitle wow fadeInUp" data-wow-delay=".3s">Links</div></div>
+                        <div class="col-lg-10 wow fadeInUp" data-wow-delay=".4s">
+                            <p class="mb-1"><a href="https://github.com/Abir784" target="_blank" rel="noopener">GitHub: github.com/Abir784</a></p>
+                            <p class="mb-3"><a href="https://linkedin.com/in/mdabirhossainabir" target="_blank" rel="noopener">LinkedIn: linkedin.com/in/mdabirhossainabir</a></p>
+                            <a class="btn-line" href="{{ url('/contact') }}">Get In Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <footer>
@@ -223,15 +346,15 @@
                         <div class="col-lg-6">
                             <div class="d-menu-1 wow" data-wow-delay=".3s">
                                 <ul>
-                                    <li><a href="#">Facebook</a></li>
-                                    <li><a href="#">Twitter</a></li>
-                                    <li><a href="#">Instagram</a></li>
+                                    <li><a href="https://github.com/Abir784" target="_blank" rel="noopener">GitHub</a></li>
+                                    <li><a href="https://linkedin.com/in/mdabirhossainabir" target="_blank" rel="noopener">LinkedIn</a></li>
+                                    <li><a href="mailto:abirhossainofficial784@gmail.com">Email</a></li>
                                 </ul>
-                                <p class="no-bottom">All Right Reserved<br>{{ $settings->brand_name ?? 'Nathan' }}</p>
+                                <p class="no-bottom">All Right Reserved<br>{{ $settings->brand_name ?? 'Md. Abir Hossain' }}</p>
                             </div>
                         </div>
                         <div class="col-lg-6 text-lg-end">
-                            <a href="{{ url('/contact') }}"><h2 class="fs-84 fw-800 pe-3 shuffle wow fadeInLeft" data-wow-delay=".3s">Let's Talk</h2></a>
+                            <a href="{{ url('/contact') }}"><h2 class="fs-84 fw-800 pe-3 shuffle wow fadeInLeft" data-wow-delay=".3s">Let's Build</h2></a>
                         </div>
                     </div>
                 </div>

@@ -8,6 +8,8 @@ sed -ri "s/:80>/:${PORT}>/" /etc/apache2/sites-available/000-default.conf
 
 sed -ri 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 
+rm -f /var/www/html/bootstrap/cache/*.php
+
 mkdir -p /var/www/html/storage/framework/views
 mkdir -p /var/www/html/storage/framework/cache /var/www/html/storage/framework/sessions
 

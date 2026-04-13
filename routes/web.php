@@ -20,10 +20,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/services', [HomeController::class, 'services'])->name('services');
 Route::get('/works', [HomeController::class, 'works'])->name('works');
-Route::view('/work-single', 'pages.work-single')->name('work-single');
 Route::get('/works/{work}', [HomeController::class, 'workSingle'])->name('works.show');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
-Route::view('/blog-single', 'pages.blog-single')->name('blog-single');
 Route::get('/blog/{blogPost:slug}', [HomeController::class, 'blogSingle'])->name('blog.show');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 

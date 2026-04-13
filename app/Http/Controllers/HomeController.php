@@ -72,48 +72,57 @@ class HomeController extends Controller
 
     private function settings(): SiteSetting
     {
-        return SiteSetting::query()->firstOrCreate([], [
-            'brand_name' => 'Nathan',
-            'hero_title' => 'A Website Designer from New York',
-            'hero_subtitle' => 'Transforming your vision into a dynamic web experience.',
-            'about_title' => 'Who I Am',
-            'about_text' => 'I am a web designer focused on clean design and strong user experience.',
+        $settings = SiteSetting::query()->firstOrCreate([], [
+            'brand_name' => 'Md. Abir Hossain',
+            'hero_title' => 'Laravel Developer | ML Engineer | Data Analyst',
+            'hero_subtitle' => 'Computer Science graduate with hands-on experience in full-stack Laravel development, machine learning pipelines, and data analytics dashboards.',
+            'about_title' => 'About Me',
+            'about_text' => 'I build practical software products from backend APIs to ML-driven tools. My work combines secure web engineering, applied AI, and data-driven decision support.',
             'about_skills' => [
-                ['title' => 'Figma', 'image_path' => 'logo/figma.webp'],
-                ['title' => 'Photoshop', 'image_path' => 'logo/photoshop.webp'],
-                ['title' => 'Sketch', 'image_path' => 'logo/sketch.webp'],
-                ['title' => 'Adobe XD', 'image_path' => 'logo/xd.webp'],
+                ['title' => 'Laravel', 'image_path' => 'logo/figma.webp'],
+                ['title' => 'Python', 'image_path' => 'logo/photoshop.webp'],
+                ['title' => 'MySQL', 'image_path' => 'logo/sketch.webp'],
+                ['title' => 'Power BI', 'image_path' => 'logo/xd.webp'],
             ],
             'about_coding_skills' => [
-                ['name' => 'HTML', 'level' => 80],
-                ['name' => 'CSS', 'level' => 70],
-                ['name' => 'Bootstrap', 'level' => 82],
-                ['name' => 'JavaScript', 'level' => 62],
-                ['name' => 'PHP', 'level' => 90],
-                ['name' => 'React', 'level' => 85],
+                ['name' => 'Laravel / PHP', 'level' => 92],
+                ['name' => 'Python ML Stack', 'level' => 88],
+                ['name' => 'MySQL / SQL', 'level' => 90],
+                ['name' => 'JavaScript', 'level' => 82],
+                ['name' => 'Data Visualization', 'level' => 84],
+                ['name' => 'REST API Design', 'level' => 86],
             ],
             'about_experiences' => [
-                ['period' => '2022 – Present', 'title' => 'Lead Website Designer', 'organization' => 'Tech Solutions Inc'],
-                ['period' => '2018 - 2022', 'title' => 'Mid-Level Website Designer', 'organization' => 'Creativo Web Agency'],
-                ['period' => '2016 - 2018', 'title' => 'Junior Website Designer', 'organization' => 'Rocket Web Services'],
+                ['period' => 'Jun 2025 – Jan 2026', 'title' => 'Student Tutor', 'organization' => 'BRAC University'],
+                ['period' => '2026 – Present', 'title' => 'Open-Source Laravel Author', 'organization' => 'Independent'],
+                ['period' => '2021 – Present', 'title' => 'Freelance Developer & Research Builder', 'organization' => 'Project-based'],
             ],
             'about_education' => [
-                ['year' => '2018', 'title' => 'Master in Design', 'organization' => 'New York University'],
-                ['year' => '2014', 'title' => 'Bachelor of Arts', 'organization' => 'University of London'],
-                ['year' => '2011', 'title' => 'Artist of College', 'organization' => 'University of Sydney'],
+                ['year' => '2022 - 2026', 'title' => 'BSc in CSE (CGPA: 3.87/4.00)', 'organization' => 'BRAC University'],
+                ['year' => '2018 - 2020', 'title' => 'Higher Secondary Certificate (Science)', 'organization' => 'St. Gregory\'s High School and College'],
+                ['year' => '2021', 'title' => 'Web Development in Laravel (6-Month Training)', 'organization' => 'Creative IT Institute'],
             ],
             'about_testimonials' => [
-                ['name' => 'John Reynolds', 'role' => 'CEO of Boutique Bliss', 'quote' => 'Our e-commerce website needed a complete overhaul, and Nathan delivered beyond our expectations.', 'image_path' => 'testimonial/1.webp'],
-                ['name' => 'David Kim', 'role' => 'Freelance Photographer', 'quote' => 'Nathan helped me design a personal portfolio website that truly highlights my work as a photographer.', 'image_path' => 'testimonial/2.webp'],
-                ['name' => 'Dr. Robert Harris', 'role' => 'Founder of Harris Clinic', 'quote' => 'The new site is visually appealing and highly functional for our patients.', 'image_path' => 'testimonial/3.webp'],
+                ['name' => 'Faculty Team', 'role' => 'BRAC University', 'quote' => 'Abir consistently translated difficult concepts into practical outcomes for students and teams.', 'image_path' => 'testimonial/1.webp'],
+                ['name' => 'Open Source Users', 'role' => 'Laravel Community', 'quote' => 'His packages are practical, well-structured, and easy to integrate into production workflows.', 'image_path' => 'testimonial/2.webp'],
+                ['name' => 'Project Collaborators', 'role' => 'Research & Product Teams', 'quote' => 'Strong ownership mindset with reliable execution from idea to deployment.', 'image_path' => 'testimonial/3.webp'],
             ],
             'about_counters' => [
-                ['label' => 'Hours of Works', 'value' => 8240],
-                ['label' => 'Projects Done', 'value' => 315],
-                ['label' => 'Satisfied Customers', 'value' => 250],
-                ['label' => 'Awards Winning', 'value' => 32],
+                ['label' => 'Published Packages', 'value' => 2],
+                ['label' => 'Major Portfolio Projects', 'value' => 10],
+                ['label' => 'Students Mentored', 'value' => 20],
+                ['label' => 'CGPA x100', 'value' => 387],
             ],
-            'contact_intro' => 'Get in touch to discuss your next project.',
+            'contact_intro' => 'Open to software engineering, Laravel, AI/ML, and data analytics opportunities. Let\'s build something useful.',
+            'contact_email' => 'abirhossainofficial784@gmail.com',
+            'contact_phone' => '01400554400',
         ]);
+
+        if (blank($settings->home_hero_image_path)) {
+            $settings->home_hero_image_path = 'assets/images/background/profile.png';
+            $settings->save();
+        }
+
+        return $settings;
     }
 }

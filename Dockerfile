@@ -58,6 +58,8 @@ COPY . .
 COPY --from=vendor /app/vendor ./vendor
 COPY --from=frontend /app/public/build ./public/build
 
+RUN rm -f bootstrap/cache/*.php
+
 RUN if [ -f .env.example ]; then cp .env.example .env; else printf "APP_ENV=production\nAPP_DEBUG=false\n" > .env; fi \
     && php artisan package:discover --ansi \
     && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \

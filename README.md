@@ -10,8 +10,50 @@
 ## CI/CD
 
 - GitHub Actions workflow: `.github/workflows/ci-cd.yml`
+- The workflow runs Laravel tests, builds frontend assets, and validates the Docker image.
 - Setup guide: `docs/ci-cd.md`
 - CD secret required for deploy: `DEPLOY_HOOK_URL`
+
+## Portfolio Deployment
+
+This project is configured as a personal portfolio and can be deployed via Docker, Vercel, and GitHub.
+
+### 1) Deploy with Docker
+
+Build and run locally:
+
+```bash
+docker build -t abir-portfolio .
+docker run -p 10000:10000 --env-file .env abir-portfolio
+```
+
+Then open `http://localhost:10000`.
+
+### 2) Deploy with Vercel
+
+Vercel config files included:
+
+- `vercel.json`
+- `api/index.php`
+
+Steps:
+
+1. Push this repository to GitHub.
+2. Import the repo in Vercel.
+3. Set required environment variables in Vercel project settings (`APP_KEY`, DB variables if using MySQL).
+4. Deploy.
+
+### 3) Deploy with GitHub + Render (Docker Runtime)
+
+`render.yaml` is already configured for Docker deployment.
+
+Steps:
+
+1. Push to GitHub.
+2. Create a new Render Web Service from the repo.
+3. Select Docker runtime (Render will use `Dockerfile` and `render.yaml`).
+4. Set secrets (`APP_KEY`, `DB_*`, `APP_URL`) in Render dashboard.
+5. Deploy.
 
 ## About Laravel
 

@@ -1,189 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from www.madebydesignesia.com/themes/nathan/works.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 09:49:11 GMT -->
 <head>
-    <title>Nathan — Personal Portfolio Website</title>
+    <title>{{ $settings->brand_name ?? 'Md. Abir Hossain' }} - Projects</title>
     <link rel="icon" href="{{ asset('assets/images/icon.webp') }}" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
-    <meta content="" name="description" >
-    <meta content="" name="keywords" >
-    <meta content="" name="author" >
-    <!-- CSS Files
-    ================================================== -->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" id="bootstrap">
-    <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css" >
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" >
-    <link href="{{ asset('assets/css/coloring.css') }}" rel="stylesheet" type="text/css" >
-    <!-- color scheme -->
-    <link id="colors" href="{{ asset('assets/css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css" >
-
+    <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/coloring.css') }}" rel="stylesheet" type="text/css">
+    <link id="colors" href="{{ asset('assets/css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css">
 </head>
-
 <body class="dark-scheme">
-    <div id="wrapper">
-        <div class="float-text show-on-scroll">
-            <span><a href="#">Scroll to top</a></span>
-        </div>
-        <div class="scrollbar-v show-on-scroll"></div>
-
-        <!-- page preloader begin -->
-        <div id="de-loader"></div>
-        <!-- page preloader close -->
-
-        <!-- content begin -->
-        <div class="section-dark no-bottom no-top" id="content">
-
-            <div id="top"></div>
-
-            <section class="no-top">
-
-                <div class="text-fit-wrapper">
-                    <h1 class="text-fit wow">My Works</h1>
-                    <div class="d-menu-1 wow" data-wow-delay=".3s">
-                        <ul>
-                            <li><a href="{{ url('/' ) }}">Home</a></li>
-                            <li><a href="{{ url('/about') }}">About Me</a></li>
-                            <li><a href="{{ url('/services') }}">What I Do</a></li>
-                            <li class="active"><a href="{{ url('/works') }}">Works</a></li>
-                            <li><a href="{{ url('/blog') }}">Blog</a></li>
-                            <li><a href="{{ url('/contact') }}">Hire Me</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="no-top">
-                <div class="container">
-                    <div class="row g-4 wow fadeInUp" data-wow-delay=".3s">
-                        <div class="col-lg-4">
-                            <div class="hover relative overflow-hidden text-light">
-                              <a href="{{ url('/work-single') }}" class="overflow-hidden d-block relative">
-                                <h2 class="fs-40 abs-centered z-index-1 hover-op-0">Adidas</h2>
-                                <img src="{{ asset('assets/images/works/1.webp') }}" class="img-fluid hover-scale-1-2" alt="">
-
-                                <div class="absolute bottom-0 w-100 p-4 d-flex text-white justify-content-between">
-                                    <div class="d-tag-s2">E-COMMERCE WEBSITE</div>
-                                    <div class="fw-bold">2024</div>
-                                </div>
-                              </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="hover relative overflow-hidden text-light">
-                              <a href="{{ url('/work-single') }}" class="overflow-hidden d-block relative">
-                                <h2 class="fs-40 abs-centered z-index-1 hover-op-0">WWF</h2>
-                                <img src="{{ asset('assets/images/works/2.webp') }}" class="img-fluid hover-scale-1-2" alt="">
-
-                                <div class="absolute bottom-0 w-100 p-4 d-flex text-white justify-content-between">
-                                    <div class="d-tag-s2">CUSTOM WEBSITE DESIGN</div>
-                                    <div class="fw-bold">2023</div>
-                                </div>
-                              </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="hover relative overflow-hidden text-light">
-                              <a href="{{ url('/work-single') }}" class="overflow-hidden d-block relative">
-                                <h2 class="fs-40 abs-centered z-index-1 hover-op-0">Honda</h2>
-                                <img src="{{ asset('assets/images/works/3.webp') }}" class="img-fluid hover-scale-1-2" alt="">
-
-                                <div class="absolute bottom-0 w-100 p-4 d-flex text-white justify-content-between">
-                                    <div class="d-tag-s2">FRONT-END DEVELOPMENT</div>
-                                    <div class="fw-bold">2022</div>
-                                </div>
-                              </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="hover relative overflow-hidden text-light">
-                              <a href="{{ url('/work-single') }}" class="overflow-hidden d-block relative">
-                                <h2 class="fs-40 abs-centered z-index-1 hover-op-0">Uniqlo</h2>
-                                <img src="{{ asset('assets/images/works/4.webp') }}" class="img-fluid hover-scale-1-2" alt="">
-
-                                <div class="absolute bottom-0 w-100 p-4 d-flex text-white justify-content-between">
-                                    <div class="d-tag-s2">Social Media Integration</div>
-                                    <div class="fw-bold">2021</div>
-                                </div>
-                              </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="hover relative overflow-hidden text-light">
-                              <a href="{{ url('/work-single') }}" class="overflow-hidden d-block relative">
-                                <h2 class="fs-40 abs-centered z-index-1 hover-op-0">Playstation</h2>
-                                <img src="{{ asset('assets/images/works/5.webp') }}" class="img-fluid hover-scale-1-2" alt="">
-
-                                <div class="absolute bottom-0 w-100 p-4 d-flex text-white justify-content-between">
-                                    <div class="d-tag-s2">Website Optimization</div>
-                                    <div class="fw-bold">2020</div>
-                                </div>
-                              </a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <div class="hover relative overflow-hidden text-light">
-                              <a href="{{ url('/work-single') }}" class="overflow-hidden d-block relative">
-                                <h2 class="fs-40 abs-centered z-index-1 hover-op-0">Wilson</h2>
-                                <img src="{{ asset('assets/images/works/6.webp') }}" class="img-fluid hover-scale-1-2" alt="">
-
-                                <div class="absolute bottom-0 w-100 p-4 d-flex text-white justify-content-between">
-                                    <div class="d-tag-s2">Landing Page Design</div>
-                                    <div class="fw-bold">2019</div>
-                                </div>
-                              </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-        <!-- content close -->
-
-        <!-- footer begin -->
-        <footer>
-            <div class="container-fluid">
-                <div class="px-2">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-lg-6">
-                            <div class="d-menu-1 wow" data-wow-delay=".3s">
-                                <ul>
-                                    <li><a href="#">Facebook</a></li>
-                                    <li><a href="#">Twitter</a></li>
-                                    <li><a href="#">Instagram</a></li>
-                                </ul>
-
-                                <p class="no-bottom">All Right Reserved<br>Template By Designesia</p>
-
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 text-lg-end">
-                            <a href="{{ url('/contact') }}">
-                                <h2 class="fs-84 fw-800 pe-3 shuffle wow fadeInLeft" data-wow-delay=".3s">Let's Talk</h2>
-                            </a>
-                        </div>
-                    </div>
+<div id="wrapper">
+    <div id="de-loader"></div>
+    <div class="section-dark no-bottom no-top" id="content">
+        <section class="no-top">
+            <div class="text-fit-wrapper">
+                <h1 class="text-fit wow">Projects</h1>
+                <div class="d-menu-1 wow" data-wow-delay=".3s">
+                    <ul>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/about') }}">About</a></li>
+                        <li><a href="{{ url('/services') }}">Services</a></li>
+                        <li class="active"><a href="{{ url('/works') }}">Projects</a></li>
+                        <li><a href="{{ url('/blog') }}">Articles</a></li>
+                        <li><a href="{{ url('/contact') }}">Contact</a></li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-        <!-- footer close -->
+        </section>
+
+        <section class="no-top">
+            <div class="container">
+                <div class="row g-4 wow fadeInUp" data-wow-delay=".3s">
+                    @forelse($works as $work)
+                        <div class="col-lg-4">
+                            <div class="hover relative overflow-hidden text-light">
+                                <a href="{{ route('works.show', $work) }}" class="overflow-hidden d-block relative">
+                                    <h2 class="fs-32 abs-centered z-index-1 hover-op-0">{{ $work->title }}</h2>
+                                    <img src="{{ $work->image_path ? asset('assets/images/'.$work->image_path) : asset('assets/images/works/1.webp') }}" class="img-fluid hover-scale-1-2" alt="">
+                                    <div class="absolute bottom-0 w-100 p-4 d-flex text-white justify-content-between">
+                                        <div class="d-tag-s2">{{ strtoupper($work->category) }}</div>
+                                        <div class="fw-bold">{{ $work->year }}</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>laravel-smartvisual</h4><p>Open-source Laravel charting package with custom SVG rendering and export features.</p><small>Laravel Package | 2026</small><p class="mb-0 mt-2"><a href="https://github.com/Abir784" target="_blank" rel="noopener">View on GitHub</a></p></div></div>
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>laravel-query-watchdog</h4><p>Query observability package featuring SQL fingerprinting, N+1 detection, and percentile metrics.</p><small>Observability | 2026</small><p class="mb-0 mt-2"><a href="https://github.com/Abir784" target="_blank" rel="noopener">View on GitHub</a></p></div></div>
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>FosterPet</h4><p>Pet fostering and adoption platform with multi-role accounts and complete request workflows.</p><small>Full-Stack Web App | 2025</small><p class="mb-0 mt-2"><a href="https://github.com/Abir784" target="_blank" rel="noopener">View on GitHub</a></p></div></div>
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>RenewBiz</h4><p>E-commerce platform connecting households with scrap businesses using secure role-based flows.</p><small>Full-Stack Web App | 2025</small><p class="mb-0 mt-2"><a href="https://github.com/Abir784" target="_blank" rel="noopener">View on GitHub</a></p></div></div>
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>ClydePixel</h4><p>Secure client platform featuring backend authentication and encrypted login workflow support.</p><small>Web Platform | 2025</small><p class="mb-0 mt-2"><a href="https://github.com/Abir784" target="_blank" rel="noopener">Project Profile</a></p></div></div>
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>Jobs World 24</h4><p>Laravel-based job portal with multi-role authentication, postings, and advanced search filters.</p><small>Web Platform | 2025</small><p class="mb-0 mt-2"><a href="https://github.com/Abir784" target="_blank" rel="noopener">View on GitHub</a></p></div></div>
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>Sentiment Analysis of AI Agents</h4><p>3-class NLP benchmark with cross-validation, class balancing, and Streamlit analytics dashboard.</p><small>NLP Research | 2026</small><p class="mb-0 mt-2"><a href="https://github.com/Abir784" target="_blank" rel="noopener">View on GitHub</a></p></div></div>
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>Chess Piece Detection using YOLO</h4><p>End-to-end object detection pipeline for chessboard and 15 piece classes on image/video input.</p><small>Computer Vision | 2026</small><p class="mb-0 mt-2"><a href="https://github.com/Abir784" target="_blank" rel="noopener">View on GitHub</a></p></div></div>
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>Ozone Level Prediction</h4><p>Time-series forecasting with lag and rolling features using XGBoost and ensemble regressors.</p><small>Data Analytics | 2026</small><p class="mb-0 mt-2"><a href="https://github.com/Abir784" target="_blank" rel="noopener">View on GitHub</a></p></div></div>
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>Explainable Fire Detection</h4><p>TensorFlow/Keras CNN fire classifier with Grad-CAM visualization for explainable predictions.</p><small>Deep Learning | 2026</small><p class="mb-0 mt-2"><a href="https://www.kaggle.com" target="_blank" rel="noopener">View on Kaggle</a></p></div></div>
+                        <div class="col-lg-4"><div class="p-4 border rounded-1 h-100"><h4>Personality Classification</h4><p>Behavioral data classification pipeline using Logistic Regression, Random Forest, and SVM.</p><small>Machine Learning | 2026</small><p class="mb-0 mt-2"><a href="https://www.kaggle.com" target="_blank" rel="noopener">View on Kaggle</a></p></div></div>
+                    @endforelse
+                </div>
+            </div>
+        </section>
     </div>
-
-    <!-- Javascript Files
-    ================================================== -->
-    <script src="{{ asset('assets/js/plugins.js') }}"></script>
-    <script src="{{ asset('assets/js/designesia.js') }}"></script>
-
+</div>
+<script src="{{ asset('assets/js/plugins.js') }}"></script>
+<script src="{{ asset('assets/js/designesia.js') }}"></script>
 </body>
-
-<!-- Mirrored from www.madebydesignesia.com/themes/nathan/works.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 09:49:11 GMT -->
 </html>

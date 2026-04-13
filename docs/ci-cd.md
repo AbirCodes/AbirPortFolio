@@ -11,6 +11,10 @@ This project includes a workflow file at `.github/workflows/ci-cd.yml`.
   - Runs tests (`php artisan test`)
   - Builds frontend assets (`npm run build`)
 
+- **Docker validation (on PRs and pushes to `main`)**
+  - Builds the production Docker image with the repo `Dockerfile`
+  - Catches container bootstrap/runtime issues before merge
+
 - **CD (on push to `main`)**
   - Runs only if `DEPLOY_HOOK_URL` is configured
   - Calls your hosting provider deploy hook (Render/Railway/Koyeb style)
@@ -38,6 +42,12 @@ Add this in your GitHub repository settings:
   - `DB_DATABASE=blog_test`
   - `DB_USERNAME=root`
   - `DB_PASSWORD=root`
+
+## Docker Notes
+
+- The Docker build clears stale Laravel cache files before package discovery.
+- The container listens on the platform `PORT` value and falls back to `10000` locally.
+- For Render, keep the service pointed at this repository and set the Laravel/database environment variables in the dashboard.
 
 ## Notes
 

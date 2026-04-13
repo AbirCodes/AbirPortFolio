@@ -1,181 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from www.madebydesignesia.com/themes/nathan/services.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 09:49:11 GMT -->
 <head>
-    <title>Nathan — Personal Portfolio Website</title>
+    <title>{{ $settings->brand_name ?? 'Md. Abir Hossain' }} - Services</title>
     <link rel="icon" href="{{ asset('assets/images/icon.webp') }}" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
-    <meta content="" name="description" >
-    <meta content="" name="keywords" >
-    <meta content="" name="author" >
-    <!-- CSS Files
-    ================================================== -->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" id="bootstrap">
-    <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css" >
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" >
-    <link href="{{ asset('assets/css/coloring.css') }}" rel="stylesheet" type="text/css" >
-    <!-- color scheme -->
-    <link id="colors" href="{{ asset('assets/css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css" >
-
+    <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/coloring.css') }}" rel="stylesheet" type="text/css">
+    <link id="colors" href="{{ asset('assets/css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css">
 </head>
-
 <body class="dark-scheme">
-    <div id="wrapper">
-        <div class="float-text show-on-scroll">
-            <span><a href="#">Scroll to top</a></span>
-        </div>
-        <div class="scrollbar-v show-on-scroll"></div>
-
-        <!-- page preloader begin -->
-        <div id="de-loader"></div>
-        <!-- page preloader close -->
-
-        <!-- content begin -->
-        <div class="section-dark no-bottom no-top" id="content">
-
-            <div id="top"></div>
-
-            <section class="no-top">
-
-                <div class="text-fit-wrapper">
-                    <h1 class="text-fit wow">What I Do</h1>
-                    <div class="d-menu-1 wow" data-wow-delay=".3s">
-                        <ul>
-                            <li><a href="{{ url('/' ) }}">Home</a></li>
-                            <li><a href="{{ url('/about') }}">About Me</a></li>
-                            <li class="active"><a href="{{ url('/services') }}">What I Do</a></li>
-                            <li><a href="{{ url('/works') }}">Works</a></li>
-                            <li><a href="{{ url('/blog') }}">Blog</a></li>
-                            <li><a href="{{ url('/contact') }}">Hire Me</a></li>
-                        </ul>
-                    </div>
+<div id="wrapper">
+    <div id="de-loader"></div>
+    <div class="section-dark no-bottom no-top" id="content">
+        <section class="no-top">
+            <div class="text-fit-wrapper">
+                <h1 class="text-fit wow">Services</h1>
+                <div class="d-menu-1 wow" data-wow-delay=".3s">
+                    <ul>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/about') }}">About</a></li>
+                        <li class="active"><a href="{{ url('/services') }}">Services</a></li>
+                        <li><a href="{{ url('/works') }}">Projects</a></li>
+                        <li><a href="{{ url('/blog') }}">Articles</a></li>
+                        <li><a href="{{ url('/contact') }}">Contact</a></li>
+                    </ul>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="no-top">
-                <div class="container">
-                    <div class="row g-5">
-                        <div class="col-lg-8 offset-lg-2">
-                            <div class="row g-4">
-                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+        <section class="no-top">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-8 offset-lg-2">
+                        <p class="lead">I help teams ship robust web products, practical AI solutions, and measurable analytics systems.</p>
+                        <div class="row g-4">
+                            @forelse($services as $service)
+                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".2s">
                                     <div class="relative">
-                                        <h4>Custom Website Design</h4>
-                                        <p>Tailored websites to match your brand's unique identity and goals.</p>
+                                        <h4>{{ $service->title }}</h4>
+                                        <p>{{ $service->description }}</p>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+                            @empty
+                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".2s">
                                     <div class="relative">
-                                        <h4>E-commerce Website</h4>
-                                        <p>Creating user-friendly online stores with secure payment gateways.</p>
+                                        <h4>Laravel Full-Stack Development</h4>
+                                        <p>Production-grade web applications with secure authentication, admin workflows, and optimized MySQL data models.</p>
                                     </div>
                                 </div>
-
                                 <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
                                     <div class="relative">
-                                        <h4>Landing Page Design</h4>
-                                        <p>High-conversion landing pages for specific marketing campaigns.</p>
+                                        <h4>REST API and Package Engineering</h4>
+                                        <p>Reusable Laravel package design with service providers, facades, tests, and clean integration docs.</p>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".4s">
                                     <div class="relative">
-                                        <h4>Front-end Development</h4>
-                                        <p>Implementing designs with clean and efficient code using HTML, CSS, JS.</p>
+                                        <h4>Machine Learning Pipelines</h4>
+                                        <p>NLP, computer vision, and forecasting workflows with reproducible training, evaluation, and reporting.</p>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
+                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".5s">
                                     <div class="relative">
-                                        <h4>Back-end Development</h4>
-                                        <p>Building robust back-end systems using technologies like PHP and databases.</p>
+                                        <h4>Data Analytics and BI Dashboards</h4>
+                                        <p>SQL + Python analytics, feature engineering, and dashboards in Power BI/Tableau for decision support.</p>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="relative">
-                                        <h4>Content Management System</h4>
-                                        <p>Integrating and customizing CMS platforms for easy content management.</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="relative">
-                                        <h4>Website Optimization</h4>
-                                        <p>Enhancing website performance, speed, and search engine optimisation.</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="relative">
-                                        <h4>Website Audits</h4>
-                                        <p>Conducting audits to identify areas for improvement in design and performance.</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="relative">
-                                        <h4>Content Strategy &amp; Creation</h4>
-                                        <p>Developing effective content strategies and providing copywriting services.</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-sm-6 wow fadeInUp" data-wow-delay=".3s">
-                                    <div class="relative">
-                                        <h4>Social Media Integration</h4>
-                                        <p>Integrating social media platforms to enhance engagement.</p>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-        <!-- content close -->
-
-        <!-- footer begin -->
-        <footer>
-            <div class="container-fluid">
-                <div class="px-2">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-lg-6">
-                            <div class="d-menu-1 wow" data-wow-delay=".3s">
-                                <ul>
-                                    <li><a href="#">Facebook</a></li>
-                                    <li><a href="#">Twitter</a></li>
-                                    <li><a href="#">Instagram</a></li>
-                                </ul>
-
-                                <p class="no-bottom">All Right Reserved<br>Template By Designesia</p>
-
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 text-lg-end">
-                            <a href="{{ url('/contact') }}">
-                                <h2 class="fs-84 fw-800 pe-3 shuffle wow fadeInLeft" data-wow-delay=".3s">Let's Talk</h2>
-                            </a>
+                            @endforelse
                         </div>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- footer close -->
+        </section>
     </div>
-
-    <!-- Javascript Files
-    ================================================== -->
-    <script src="{{ asset('assets/js/plugins.js') }}"></script>
-    <script src="{{ asset('assets/js/designesia.js') }}"></script>
-
+</div>
+<script src="{{ asset('assets/js/plugins.js') }}"></script>
+<script src="{{ asset('assets/js/designesia.js') }}"></script>
 </body>
-
-<!-- Mirrored from www.madebydesignesia.com/themes/nathan/services.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 09:49:11 GMT -->
 </html>

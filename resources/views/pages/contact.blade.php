@@ -1,155 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from www.madebydesignesia.com/themes/nathan/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 09:49:12 GMT -->
 <head>
-    <title>Nathan — Personal Portfolio Website</title>
+    <title>{{ $settings->brand_name ?? 'Md. Abir Hossain' }} - Contact</title>
     <link rel="icon" href="{{ asset('assets/images/icon.webp') }}" type="image/gif" sizes="16x16">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" >
-    <meta content="" name="description" >
-    <meta content="" name="keywords" >
-    <meta content="" name="author" >
-    <!-- CSS Files
-    ================================================== -->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" id="bootstrap">
-    <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css" >
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" >
-    <link href="{{ asset('assets/css/coloring.css') }}" rel="stylesheet" type="text/css" >
-    <!-- color scheme -->
-    <link id="colors" href="{{ asset('assets/css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css" >
-
+    <link href="{{ asset('assets/css/plugins.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/coloring.css') }}" rel="stylesheet" type="text/css">
+    <link id="colors" href="{{ asset('assets/css/colors/scheme-01.css') }}" rel="stylesheet" type="text/css">
 </head>
-
 <body class="dark-scheme">
-    <div id="wrapper">
-        <div class="float-text show-on-scroll">
-            <span><a href="#">Scroll to top</a></span>
-        </div>
-        <div class="scrollbar-v show-on-scroll"></div>
-
-        <!-- page preloader begin -->
-        <div id="de-loader"></div>
-        <!-- page preloader close -->
-
-        <!-- content begin -->
-        <div class="section-dark no-bottom no-top" id="content">
-
-            <div id="top"></div>
-
-            <section class="no-top">
-
-                <div class="text-fit-wrapper">
-                    <h1 class="text-fit wow">Hire Me</h1>
-                    <div class="d-menu-1 wow" data-wow-delay=".3s">
-                        <ul>
-                            <li><a href="{{ url('/' ) }}">Home</a></li>
-                            <li><a href="{{ url('/about') }}">About Me</a></li>
-                            <li><a href="{{ url('/services') }}">What I Do</a></li>
-                            <li><a href="{{ url('/works') }}">Works</a></li>
-                            <li><a href="{{ url('/blog') }}">Blog</a></li>
-                            <li class="active"><a href="{{ url('/contact') }}">Hire Me</a></li>
-                        </ul>
-                    </div>
+<div id="wrapper">
+    <div id="de-loader"></div>
+    <div class="section-dark no-bottom no-top" id="content">
+        <section class="no-top">
+            <div class="text-fit-wrapper">
+                <h1 class="text-fit wow">Contact</h1>
+                <div class="d-menu-1 wow" data-wow-delay=".3s">
+                    <ul>
+                        <li><a href="{{ url('/') }}">Home</a></li>
+                        <li><a href="{{ url('/about') }}">About</a></li>
+                        <li><a href="{{ url('/services') }}">Services</a></li>
+                        <li><a href="{{ url('/works') }}">Projects</a></li>
+                        <li><a href="{{ url('/blog') }}">Articles</a></li>
+                        <li class="active"><a href="{{ url('/contact') }}">Contact</a></li>
+                    </ul>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="no-top">
-                <div class="container">
-                    <div class="row g-4 gx-5">
-                        <div class="col-lg-8 offset-lg-2 wow fadeInUp" data-wow-delay=".3s">
-                            <p>Whether you have a question, a suggestion, or just want to say hello, this is the place to do it. Please fill out the form below with your details and message, and we'll get back to you as soon as possible.</p>
-
-
-                            <form name="contactForm" id="contact_form" class="position-relative z1000" method="post" action="#">
-                                <div class="row gx-4">
-                                    <div class="col-lg-6 col-md-6 mb10">
-                                        <div class="field-set">
-                                            <span class="d-label fw-bold">Name</span>
-                                            <input type="text" name="Name" id="name" class="form-control no-border" placeholder="Your Name" required>
-                                        </div>
-
-                                        <div class="field-set">
-                                            <span class="d-label fw-bold">Email</span>
-                                            <input type="text" name="Email" id="email" class="form-control no-border" placeholder="Your Email" required>
-                                        </div>
-
-                                        <div class="field-set">
-                                            <span class="d-label fw-bold">Phone</span>
-                                            <input type="text" name="phone" id="phone" class="form-control no-border" placeholder="Your Phone" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6">
-                                        <div class="field-set mb20">
-                                            <span class="d-label fw-bold">Message</span>
-                                            <textarea name="message" id="message" class="form-control no-border" placeholder="Your Message" required></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="g-recaptcha" data-sitekey="6LdW03QgAAAAAJko8aINFd1eJUdHlpvT4vNKakj6"></div>
-                                <div id='submit' class="mt20">
-                                    <input type='submit' id='send_message' value='Send Message' class="btn-main btn-line">
-                                </div>
-
-                                <div id="success_message" class='success'>
-                                    Your message has been sent successfully. Refresh this page if you want to send more messages.
-                                </div>
-                                <div id="error_message" class='error'>
-                                    Sorry there was an error sending your form.
-                                </div>
-                            </form>
-
+        <section class="no-top">
+            <div class="container">
+                <div class="row g-4 gx-5">
+                    <div class="col-lg-8 offset-lg-2 wow fadeInUp" data-wow-delay=".3s">
+                        <p class="lead">{{ $settings->contact_intro ?: 'Open to software engineering, Laravel, AI/ML, and data analytics opportunities.' }}</p>
+                        <div class="p-4 border rounded-1 mb-4">
+                            <h4>Email</h4>
+                            <p class="mb-0"><a href="mailto:{{ $settings->contact_email ?: 'abirhossainofficial784@gmail.com' }}">{{ $settings->contact_email ?: 'abirhossainofficial784@gmail.com' }}</a></p>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-        <!-- content close -->
-
-        <!-- footer begin -->
-        <footer>
-            <div class="container-fluid">
-                <div class="px-2">
-                    <div class="row g-4 align-items-center">
-                        <div class="col-lg-6">
-                            <div class="d-menu-1 wow" data-wow-delay=".3s">
-                                <ul>
-                                    <li><a href="#">Facebook</a></li>
-                                    <li><a href="#">Twitter</a></li>
-                                    <li><a href="#">Instagram</a></li>
-                                </ul>
-
-                                <p class="no-bottom">All Right Reserved<br>Template By Designesia</p>
-
-                            </div>
+                        <div class="p-4 border rounded-1 mb-4">
+                            <h4>Phone</h4>
+                            <p class="mb-0"><a href="tel:{{ $settings->contact_phone ?: '01400554400' }}">{{ $settings->contact_phone ?: '01400554400' }}</a></p>
                         </div>
-
-                        <div class="col-lg-6 text-lg-end">
-                            <a href="{{ url('/contact') }}">
-                                <h2 class="fs-84 fw-800 pe-3 shuffle wow fadeInLeft" data-wow-delay=".3s">Let's Talk</h2>
-                            </a>
+                        <div class="p-4 border rounded-1">
+                            <h4>Profiles</h4>
+                            <p class="mb-1"><a href="https://github.com/Abir784" target="_blank" rel="noopener">github.com/Abir784</a></p>
+                            <p class="mb-0"><a href="https://linkedin.com/in/mdabirhossainabir" target="_blank" rel="noopener">linkedin.com/in/mdabirhossainabir</a></p>
                         </div>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- footer close -->
+        </section>
     </div>
-
-    <!-- Javascript Files
-    ================================================== -->
-    <script src="{{ asset('assets/js/plugins.js') }}"></script>
-    <script src="{{ asset('assets/js/designesia.js') }}"></script>
-    <script src='../../../www.google.com/recaptcha/api.js' async defer></script>
-    <script src="{{ asset('assets/form.js') }}"></script>
-
+</div>
+<script src="{{ asset('assets/js/plugins.js') }}"></script>
+<script src="{{ asset('assets/js/designesia.js') }}"></script>
 </body>
-
-
-<!-- Mirrored from www.madebydesignesia.com/themes/nathan/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 28 Feb 2026 09:49:33 GMT -->
 </html>
